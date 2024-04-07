@@ -1,0 +1,45 @@
+if [ ! -d "./logs" ]; then
+    mkdir ./logs
+fi
+
+if [ ! -d "./logs/LongForecasting" ]; then
+    mkdir ./logs/LongForecasting
+fi
+seq_len=288
+model_name=PatchTST
+
+root_path_name=/home/jmz/Workstation/niuxl27/patchtst/PatchTST_supervised/dataset
+data_path_name=huangshan_data_fill_count_in_feature_test1.csv
+model_id_name=huangshan
+data_name=huangshan
+
+random_seed=2021
+#for pred_len in 96 192 336 720
+for pred_len in 288
+do
+    python -u run_longExp.py \
+      --random_seed $random_seed \
+      --is_training 1 \
+      --root_path $root_path_name \
+      --data_path $data_path_name \
+      --model_id $model_id_name_$seq_len'_'$pred_len \
+      --model $model_name \
+      --data $data_name \
+      --features M \
+      --seq_len $seq_len \
+      --pred_len $pred_len \
+      --enc_in 2 \
+      --e_layers 1 \
+      --n_heads 4 \
+      --d_model 32 \
+      --d_ff 16 \
+      --dropout 0.2\
+      --fc_dropout 0.2\
+      --head_dropout 0\
+      --patch_len 16\
+      --stride 8\
+      --des 'Exp' \
+      --train_epochs 1\
+      --patience 20\
+      --itr 1 --batch_size 16 --learning_rate 0.0001 >logs/LongForecasting/$model_name'_'$model_id_name'_'$seq_len'_'$pred_len.log 
+done
