@@ -1,0 +1,7 @@
+Args in experiment:
+Namespace(random_seed=2021, is_training=1, model_id='12_12', model='PatchTST', data='custom', root_path='/home/jmz/huangshan_dataset/', data_path='huangshan_data_fill_count_in_feature_eng_1k.csv', features='M', target='OT', freq='h', checkpoints='./checkpoints/', seq_len=12, label_len=48, pred_len=12, fc_dropout=0.2, head_dropout=0.0, patch_len=16, stride=8, padding_patch='end', revin=1, affine=0, subtract_last=0, decomposition=0, kernel_size=25, individual=0, embed_type=0, enc_in=2, dec_in=7, c_out=7, d_model=32, n_heads=4, e_layers=1, d_layers=1, d_ff=16, moving_avg=25, factor=1, distil=True, dropout=0.2, embed='timeF', activation='gelu', output_attention=False, do_predict=False, num_workers=10, itr=1, train_epochs=1, batch_size=16, patience=20, learning_rate=0.0001, des='Exp', loss='mse', lradj='type3', pct_start=0.3, use_amp=False, use_gpu=False, gpu=0, use_multi_gpu=False, devices='0,1,2,3', test_flop=False)
+Use CPU
+>>>>>>>start training : 12_12_PatchTST_custom_ftM_sl12_ll48_pl12_dm32_nh4_el1_dl1_df16_fc1_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
+train 677
+val 89
+test 189
